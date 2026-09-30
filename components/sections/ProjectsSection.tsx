@@ -1,72 +1,111 @@
 import {
+  ArrowUpRight,
   BrainCircuit,
-  Code2,
-  Eye,
-  Sparkles,
+  Languages,
 } from "lucide-react";
 
 import SectionHeader from "@/components/ui/SectionHeader";
-import { skillGroups } from "@/data/skills";
+import { projects } from "@/data/projects";
 
-const icons = {
-  "machine-learning": BrainCircuit,
-  "generative-ai": Sparkles,
-  "computer-vision": Eye,
-  engineering: Code2,
-};
+const projectIcons = [
+  BrainCircuit,
+  Languages,
+];
 
-export default function SkillsSection() {
+export default function ProjectsSection() {
   return (
     <section
-      id="skills"
-      className="section-soft border-t border-white/5"
+      id="projects"
+      className="section-dark border-t border-white/5"
     >
       <div className="container-main">
+
         <SectionHeader
-          eyebrow="Skills & Tools"
+          eyebrow="Featured Projects"
           title={
             <>
-              Technology behind the{" "}
+              Turning ideas into{" "}
               <span className="gradient-text">
-                solutions.
+                intelligent systems.
               </span>
             </>
           }
+          description="Selected projects exploring Machine Learning, Deep Learning, and practical AI applications."
         />
 
-        <div className="mt-12 grid gap-5 md:grid-cols-2">
-          {skillGroups.map((group) => {
-            const Icon = icons[group.key];
+        <div className="mt-14 grid gap-6 lg:grid-cols-2">
+
+          {projects.map((project, index) => {
+            const Icon = projectIcons[index];
 
             return (
               <article
-                key={group.title}
-                className="skill-card"
+                key={project.title}
+                className="project-card"
               >
-                <div className="flex items-center gap-4">
-                  <div className="icon-box">
-                    <Icon size={21} />
+
+                {/* TOP */}
+                <div className="flex items-start justify-between gap-5">
+
+                  <div className="project-icon">
+                    <Icon size={25} />
                   </div>
 
-                  <h3 className="text-lg font-semibold">
-                    {group.title}
-                  </h3>
+                  <span className="project-number">
+                    0{index + 1}
+                  </span>
+
                 </div>
 
+                {/* CATEGORY */}
+                <p className="mt-9 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
+                  {project.category}
+                </p>
+
+                {/* TITLE */}
+                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
+                  {project.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
+                  {project.description}
+                </p>
+
+                {/* TECH */}
                 <div className="mt-7 flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
+                  {project.tech.map((tech) => (
                     <span
-                      key={skill}
+                      key={tech}
                       className="skill-pill"
                     >
-                      {skill}
+                      {tech}
                     </span>
                   ))}
                 </div>
+
+                {/* FOOTER */}
+                <div className="mt-9 border-t border-white/5 pt-6">
+
+                  <a
+                    href={project.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="project-link"
+                  >
+                    View Live Project
+
+                    <ArrowUpRight size={17} />
+                  </a>
+
+                </div>
+
               </article>
             );
           })}
+
         </div>
+
       </div>
     </section>
   );
