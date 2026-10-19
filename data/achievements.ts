@@ -10,13 +10,13 @@ export const achievements: Achievement[] = [
     place: "1st Winner",
     title: "Gunadarma Code Week 2025",
     organizer: "National Hackathon",
-    role: "AI Developer",
+    role: "Machine Learning Engineer",
   },
   {
     place: "1st Winner",
     title: "Computer Multi Challenge Day",
     organizer: "Universitas Syiah Kuala",
-    role: "AI & ML Developer",
+    role: "Machine Learning Engineer",
   },
   {
     place: "2nd Winner",
@@ -28,6 +28,6 @@ export const achievements: Achievement[] = [
     place: "4th Winner",
     title: "Carbon Youth Challenge",
     organizer: "Indonesian Carbon Trade Association",
-    role: "Engineer",
+    role: "AI Engineer",
   },
 ];

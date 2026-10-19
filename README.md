@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Muhammad Daffa Yunus — Portfolio
 
-## Getting Started
+Portofolio Next.js dengan desain editorial ivory, charcoal, dan burnt orange. Font Instrument Sans dan Newsreader disimpan lokal di `app/fonts`, beserta lisensinya.
 
-First, run the development server:
+## Menjalankan
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Buka `http://localhost:3000`. Untuk produksi:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Paket ini berisi source, foto, CV, font, dan video. Folder dependency, hasil build, serta riwayat Git tidak disertakan. Saat menerapkan ke checkout lama, salin source ini ke folder proyek sambil mempertahankan folder `.git` milik checkout tersebut. Dependensi dan lockfile mengikuti proyek yang dikirim.
 
-## Learn More
+## Konten
 
-To learn more about Next.js, take a look at the following resources:
+- Hero → nama, deskripsi, tautan Projects dan Contact.
+- Projects → **3 proyek**: MarketLens, TranslateByDeff, dan Telco Churn.
+- Nama asli TranslateMachineByDeff dan TelcoSense tetap ditampilkan; deskripsi, teknologi, dan URL demo keduanya berasal dari source lama.
+- About → profil, foto, pendidikan, mata kuliah, pengalaman, bidang fokus, keahlian, dan pencapaian. Panel rincian dapat dibuka tanpa JavaScript tambahan.
+- Contact → email, GitHub, LinkedIn, dan unduhan CV dari data asli.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`data/profile.ts` memuat data profil dan kontak. `data/projects.ts` memuat proyek, termasuk lokasi video dan poster. `data/experiences.ts`, `data/skills.ts`, dan `data/achievements.ts` mempertahankan data asli.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Kontribusi pribadi, status pengembangan, repository proyek, dan stack MarketLens yang tidak tersedia ditandai placeholder. Isi berdasarkan informasi yang sudah dikonfirmasi. Pratinjau dua proyek lainnya adalah ilustrasi alur model, bukan screenshot aplikasi.
 
-## Deploy on Vercel
+## Video MarketLens
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+`public/videos/marketlens.mp4` memuat video asli berdurasi sekitar 2 menit 19 detik dalam H.264/AAC, 1920 × 1080. Penataan metadata fast start diterapkan tanpa mengodekan ulang audio/video. Poster berasal dari frame video tersebut.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Pemutar menggunakan kontrol HTML, mendukung pemutaran inline, dan `preload="none"`. Pengunjung memulai video sendiri. Link Buka video menyediakan akses langsung ke berkasnya.
+
+## Pemeriksaan
+
+Build produksi dan pemeriksaan TypeScript berhasil. Pemeriksaan hasil prerender mencakup jumlah proyek, tujuan tautan internal, dan referensi aset. Foto dan CV asli dipertahankan. Browser interaktif belum diuji pada sesi ini.

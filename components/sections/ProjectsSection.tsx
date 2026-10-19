@@ -1,111 +1,73 @@
-import {
-  ArrowUpRight,
-  BrainCircuit,
-  Languages,
-} from "lucide-react";
+import ArrowIcon from "@/components/ui/ArrowIcon";
+import ProjectPreview from "@/components/ui/ProjectPreview";
+import { projects, type Project } from "@/data/projects";
 
-import SectionHeader from "@/components/ui/SectionHeader";
-import { projects } from "@/data/projects";
+function ProjectDetails({ project }: { project: Project }) {
+  return (
+    <details className="project-details">
+      <summary>Catatan proyek <span className="disclosure-mark" aria-hidden="true" /></summary>
+      <dl className="project-record">
+        <div><dt>Masalah yang ditangani</dt><dd>{project.problem}</dd></div>
+        <div><dt>Kontribusi saya</dt><dd>{project.contribution ?? "[Rincian kontribusi belum diisi]"}</dd></div>
+        <div><dt>Status pengembangan</dt><dd>{project.status ?? "[Status pengembangan belum diisi]"}</dd></div>
+        {project.tech.length === 0 && <div><dt>Teknologi utama</dt><dd>[Stack MarketLens belum diisi]</dd></div>}
+      </dl>
+    </details>
+  );
+}
 
-const projectIcons = [
-  BrainCircuit,
-  Languages,
-];
+function ProjectLinks({ project }: { project: Project }) {
+  return (
+    <div className="project-links">
+      {project.liveUrl ? (
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Buka demo <ArrowIcon diagonal /><span className="sr-only"> {project.title}, tab baru</span></a>
+      ) : project.video ? (
+        <a href={project.video.src} target="_blank" rel="noopener noreferrer">Buka video <ArrowIcon diagonal /><span className="sr-only"> {project.title}, tab baru</span></a>
+      ) : null}
+      {project.githubUrl ? (
+        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">Repository <ArrowIcon diagonal /></a>
+      ) : <span className="pending-link">Repository [tautan belum diisi]</span>}
+    </div>
+  );
+}
 
 export default function ProjectsSection() {
+  const featured = projects.find((project) => project.id === "marketlens");
+  const supporting = projects.filter((project) => project.id !== "marketlens");
   return (
-    <section
-      id="projects"
-      className="section-dark border-t border-white/5"
-    >
-      <div className="container-main">
-
-        <SectionHeader
-          eyebrow="Featured Projects"
-          title={
-            <>
-              Turning ideas into{" "}
-              <span className="gradient-text">
-                intelligent systems.
-              </span>
-            </>
-          }
-          description="Selected projects exploring Machine Learning, Deep Learning, and practical AI applications."
-        />
-
-        <div className="mt-14 grid gap-6 lg:grid-cols-2">
-
-          {projects.map((project, index) => {
-            const Icon = projectIcons[index];
-
-            return (
-              <article
-                key={project.title}
-                className="project-card"
-              >
-
-                {/* TOP */}
-                <div className="flex items-start justify-between gap-5">
-
-                  <div className="project-icon">
-                    <Icon size={25} />
-                  </div>
-
-                  <span className="project-number">
-                    0{index + 1}
-                  </span>
-
-                </div>
-
-                {/* CATEGORY */}
-                <p className="mt-9 text-xs font-semibold uppercase tracking-[0.18em] text-indigo-400">
-                  {project.category}
-                </p>
-
-                {/* TITLE */}
-                <h3 className="mt-3 text-2xl font-semibold tracking-tight text-white">
-                  {project.title}
-                </h3>
-
-                {/* DESCRIPTION */}
-                <p className="mt-4 max-w-xl text-sm leading-7 text-slate-400">
-                  {project.description}
-                </p>
-
-                {/* TECH */}
-                <div className="mt-7 flex flex-wrap gap-2">
-                  {project.tech.map((tech) => (
-                    <span
-                      key={tech}
-                      className="skill-pill"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {/* FOOTER */}
-                <div className="mt-9 border-t border-white/5 pt-6">
-
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="project-link"
-                  >
-                    View Live Project
-
-                    <ArrowUpRight size={17} />
-                  </a>
-
-                </div>
-
-              </article>
-            );
-          })}
-
-        </div>
-
+    <section className="projects-section container-main" id="projects" aria-labelledby="projects-title">
+      <div className="section-heading">
+        <div><p className="eyebrow">01 / Selected projects</p><h2 id="projects-title">Proyek pilihan.</h2></div>
+        <p>{projects.length} proyek di market intelligence, penerjemahan bahasa, dan machine learning.</p>
+      </div>
+      {featured?.video && (
+        <article className="featured-project" aria-labelledby="marketlens-title" data-project-id={featured.id}>
+          <div className="featured-heading"><h3 id="marketlens-title">{featured.title}</h3><p>{featured.category}</p><span className="eyebrow">01<span> / Featured project</span></span></div>
+          <figure className="featured-video">
+            <div className="video-frame">
+              <video id="marketlens-video" controls playsInline preload="none" poster={featured.video.poster} width="1920" height="1080"
+                aria-label="Demo MarketLens: Profile, Discovery, My Assets, Comparison, serta evidence dan sumber" aria-describedby="marketlens-description">
+                <source src={featured.video.src} type="video/mp4" />
+                Browser ini belum mendukung video. <a href={featured.video.src}>Buka video MarketLens.</a>
+              </video>
+            </div>
+            <figcaption><span>Demo produk · video asli</span><span>{featured.video.duration} / MarketLens</span></figcaption>
+          </figure>
+          <div className="featured-description"><p id="marketlens-description">{featured.description}</p><p className="feature-index">Profile / Discovery / My Assets / Comparison</p></div>
+          <ProjectDetails project={featured} /><ProjectLinks project={featured} />
+        </article>
+      )}
+      <div className="supporting-projects">
+        {supporting.map((project, index) => (
+          <article className="supporting-project" key={project.id} aria-labelledby={`${project.id}-title`} data-project-id={project.id}>
+            <p className="project-index">0{index + 2} / {project.category}</p>
+            {project.preview !== "marketlens" && <ProjectPreview variant={project.preview} />}
+            <div className="project-title-group"><h3 id={`${project.id}-title`}>{project.title}</h3>{project.originalTitle && <p className="original-title">{project.originalTitle}</p>}</div>
+            <p className="project-description">{project.description}</p>
+            {project.tech.length > 0 && <p className="project-stack"><span className="sr-only">Teknologi: </span>{project.tech.join(" / ")}</p>}
+            <ProjectDetails project={project} /><ProjectLinks project={project} />
+          </article>
+        ))}
       </div>
     </section>
   );

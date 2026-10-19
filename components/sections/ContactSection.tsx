@@ -1,57 +1,22 @@
-import {
-  ArrowRight,
-  Download,
-  Mail,
-} from "lucide-react";
+import ArrowIcon from "@/components/ui/ArrowIcon";
+import { profile } from "@/data/profile";
 
 export default function ContactSection() {
+  const links = [
+    { label: "Email", value: profile.email, href: `mailto:${profile.email}`, external: false },
+    { label: "GitHub", value: profile.githubHandle, href: profile.github, external: true },
+    { label: "LinkedIn", value: profile.name, href: profile.linkedin, external: true },
+  ];
   return (
-    <section
-      id="contact"
-      className="section-dark border-t border-white/5"
-    >
-      <div className="container-main">
-        <div className="contact-box">
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-indigo-400/15 bg-indigo-500/10 text-indigo-300">
-            <Mail size={23} />
-          </div>
-
-          <p className="section-eyebrow mt-7">
-            Let&apos;s Connect
-          </p>
-
-          <h2 className="mx-auto mt-5 max-w-3xl text-center text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
-            Let&apos;s build something{" "}
-            <span className="gradient-text">
-              intelligent.
-            </span>
-          </h2>
-
-          <p className="mx-auto mt-5 max-w-xl text-center leading-7 text-slate-400">
-            Open to opportunities, collaborations, internships,
-            and discussions around Artificial Intelligence and
-            Machine Learning.
-          </p>
-
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <a
-              href="mailto:arkandaffa0105@gmail.com"
-              className="primary-button"
-            >
-              Get In Touch
-              <ArrowRight size={18} />
-            </a>
-
-            <a
-              href="/documents/CV-Muhammad-Daffa-Yunus.pdf"
-              download
-              className="secondary-button"
-            >
-              <Download size={17} />
-              Download CV
-            </a>
-          </div>
-        </div>
+    <section className="contact-section container-main" id="contact" aria-labelledby="contact-title">
+      <p className="eyebrow">03 / Contact</p>
+      <div className="contact-grid">
+        <div><h2 id="contact-title">Punya proyek atau ide<br />untuk dikerjakan<br /><em>bersama?</em></h2><p className="contact-description">Terbuka untuk peluang kerja, kolaborasi proyek, dan diskusi seputar AI, data, dan aplikasi web.</p><a className="text-link" href={profile.cv} download>Unduh CV <ArrowIcon diagonal /></a></div>
+        <div className="contact-links">{links.map((link) => (
+          <a className="contact-item" key={link.label} href={link.href} target={link.external ? "_blank" : undefined} rel={link.external ? "noopener noreferrer" : undefined}>
+            <span className="contact-label">{link.label}</span><span className="contact-value">{link.value}</span><ArrowIcon diagonal />{link.external && <span className="sr-only">, tab baru</span>}
+          </a>
+        ))}</div>
       </div>
     </section>
   );
