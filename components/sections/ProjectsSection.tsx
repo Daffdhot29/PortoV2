@@ -2,19 +2,6 @@ import ArrowIcon from "@/components/ui/ArrowIcon";
 import ProjectPreview from "@/components/ui/ProjectPreview";
 import { projects, type Project } from "@/data/projects";
 
-function ProjectDetails({ project }: { project: Project }) {
-  return (
-    <details className="project-details">
-      <summary>Catatan proyek <span className="disclosure-mark" aria-hidden="true" /></summary>
-      <dl className="project-record">
-        <div><dt>Masalah yang ditangani</dt><dd>{project.problem}</dd></div>
-        <div><dt>Kontribusi saya</dt><dd>{project.contribution ?? "[Rincian kontribusi belum diisi]"}</dd></div>
-        <div><dt>Status pengembangan</dt><dd>{project.status ?? "[Status pengembangan belum diisi]"}</dd></div>
-        {project.tech.length === 0 && <div><dt>Teknologi utama</dt><dd>[Stack MarketLens belum diisi]</dd></div>}
-      </dl>
-    </details>
-  );
-}
 
 function ProjectLinks({ project }: { project: Project }) {
   return (
@@ -24,9 +11,6 @@ function ProjectLinks({ project }: { project: Project }) {
       ) : project.video ? (
         <a href={project.video.src} target="_blank" rel="noopener noreferrer">Buka video <ArrowIcon diagonal /><span className="sr-only"> {project.title}, tab baru</span></a>
       ) : null}
-      {project.githubUrl ? (
-        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">Repository <ArrowIcon diagonal /></a>
-      ) : <span className="pending-link">Repository [tautan belum diisi]</span>}
     </div>
   );
 }
@@ -54,7 +38,7 @@ export default function ProjectsSection() {
             <figcaption><span>Demo produk · video asli</span><span>{featured.video.duration} / MarketLens</span></figcaption>
           </figure>
           <div className="featured-description"><p id="marketlens-description">{featured.description}</p><p className="feature-index">Profile / Discovery / My Assets / Comparison</p></div>
-          <ProjectDetails project={featured} /><ProjectLinks project={featured} />
+        <ProjectLinks project={featured} />
         </article>
       )}
       <div className="supporting-projects">
@@ -65,7 +49,7 @@ export default function ProjectsSection() {
             <div className="project-title-group"><h3 id={`${project.id}-title`}>{project.title}</h3>{project.originalTitle && <p className="original-title">{project.originalTitle}</p>}</div>
             <p className="project-description">{project.description}</p>
             {project.tech.length > 0 && <p className="project-stack"><span className="sr-only">Teknologi: </span>{project.tech.join(" / ")}</p>}
-            <ProjectDetails project={project} /><ProjectLinks project={project} />
+            <ProjectLinks project={project} />
           </article>
         ))}
       </div>
