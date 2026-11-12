@@ -5,19 +5,19 @@ export default function HeroSection() {
     <section className="hero-section container-main" aria-labelledby="hero-title">
       <div className="hero-kicker">
         <p><span className="status-dot" aria-hidden="true" />Developer / AI · Data · Web</p>
-        <span className="hero-year">Portofolio / 2026</span>
+        <span className="hero-year">Portfolio / 2026</span>
       </div>
       <h1 id="hero-title"><span>Muhammad</span><span>Daffa Yunus</span></h1>
-      <aside className="hero-note" aria-label="Catatan editorial">
-        <span className="note-rule" aria-hidden="true" /><p className="eyebrow">Catatan / 01</p>
-        <p className="editorial-note">Dari ide,<br />ke eksperimen,<br />ke aplikasi.</p>
+      <aside className="hero-note" aria-label="Editorial note">
+        <span className="note-rule" aria-hidden="true" /><p className="eyebrow">Note / 01</p>
+        <p className="editorial-note">From ideas,<br />to experiments,<br />to applications.</p>
       </aside>
-      <p className="hero-description">Saya membangun aplikasi web dan sistem berbasis AI melalui kode, data, dan eksperimen.</p>
+      <p className="hero-description">I build web applications and AI-powered systems through code, data, and experimentation.</p>
       <div className="hero-actions">
-        <a className="primary-button" href="#projects">Lihat proyek <ArrowIcon /></a>
-        <a className="text-link" href="#contact">Hubungi saya <ArrowIcon diagonal /></a>
+        <a className="primary-button" href="#projects">View projects <ArrowIcon /></a>
+        <a className="text-link" href="#contact">Contact me <ArrowIcon diagonal /></a>
       </div>
-      <div className="hero-foot"><span>Kode. Data. Eksperimen.</span><a href="#projects">Lanjut ke proyek <span aria-hidden="true">↓</span></a></div>
+      <div className="hero-foot"><span>Code. Data. Experiments.</span><a href="#projects">Explore projects <span aria-hidden="true">↓</span></a></div>
     </section>
   );
 }

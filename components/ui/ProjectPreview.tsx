@@ -5,16 +5,16 @@ export default function ProjectPreview({ variant }: ProjectPreviewProps) {
   return (
     <figure className={`project-preview project-preview-${variant}`}>
       <div className="preview-topline">
-        <span>{translation ? "Bahasa Indonesia → English" : "Pengeluaran / penggunaan"}</span>
+        <span>{translation ? "Indonesian → English" : "Spending / usage"}</span>
         <span aria-hidden="true">{translation ? "Aa" : "↗"}</span>
       </div>
-      <p className="preview-title">{translation ? <>Dari satu bahasa,<br />ke bahasa lainnya.</> : <>Pola penggunaan.<br />Pilihan paket.</>}</p>
-      <div className="model-flow" aria-label={translation ? "Teks ke LSTMCell ke terjemahan" : "Data pelanggan ke Random Forest ke paket"}>
-        <span>{translation ? "Teks" : "Data"}</span><span aria-hidden="true">→</span>
+      <p className="preview-title">{translation ? <>From one language,<br />to another.</> : <>Usage patterns.<br />Plan choices.</>}</p>
+      <div className="model-flow" aria-label={translation ? "Text to LSTMCell to translation" : "Customer data to Random Forest to plan"}>
+        <span>{translation ? "Text" : "Data"}</span><span aria-hidden="true">→</span>
         <span className="model-name">{translation ? "LSTMCell" : "Random Forest"}</span><span aria-hidden="true">→</span>
-        <span>{translation ? "Terjemahan" : "Paket"}</span>
+        <span>{translation ? "Translation" : "Plan"}</span>
       </div>
-      <figcaption>Ilustrasi alur model</figcaption>
+      <figcaption>Model workflow illustration</figcaption>
     </figure>
   );
 }

@@ -18,17 +18,17 @@ export default function AboutSection() {
           </figure>
         </div>
         <div className="about-copy">
-          <h2 id="about-title">Di balik proyek.</h2>
-          <p className="about-lead">Saya Muhammad Daffa Yunus, mahasiswa Sistem Informasi di Universitas Gunadarma yang mengerjakan AI, machine learning, computer vision, dan aplikasi web.</p>
-          <p>Saya menghubungkan model dengan retrieval, API, database, dan pengembangan perangkat lunak. Pada proyek-proyek di atas, fokusnya mencakup market intelligence, penerjemahan dengan LSTMCell, dan rekomendasi paket telco.</p>
+          <h2 id="about-title">Behind the projects.</h2>
+          <p className="about-lead">I am Muhammad Daffa Yunus, an Information Systems student at Universitas Gunadarma working on AI, machine learning, computer vision, and web applications.</p>
+          <p>I connect models with retrieval systems, APIs, databases, and software applications. The projects above focus on market intelligence, translation with LSTMCell, and telecom plan recommendations.</p>
           <div className="education-line"><p>{profile.university}</p><span>{profile.study}</span></div>
-          <details className="coursework"><summary>Mata kuliah terkait <span className="disclosure-mark" aria-hidden="true" /></summary><p>{profile.coursework.join(" / ")}</p></details>
-          <a className="text-link cv-link" href={profile.cv} download>Unduh CV <ArrowIcon diagonal /></a>
+          <details className="coursework"><summary>Relevant coursework <span className="disclosure-mark" aria-hidden="true" /></summary><p>{profile.coursework.join(" / ")}</p></details>
+          <a className="text-link cv-link" href={profile.cv} download>Download CV <ArrowIcon diagonal /></a>
         </div>
       </div>
       <div className="about-records">
         <ExperienceSection />
-        <details className="expertise-disclosure" id="skills"><summary><span>Bidang &amp; keahlian</span><span className="disclosure-mark" aria-hidden="true" /></summary><div className="expertise-content"><FocusSection /><SkillsSection /></div></details>
+        <details className="expertise-disclosure" id="skills"><summary><span>Focus &amp; expertise</span><span className="disclosure-mark" aria-hidden="true" /></summary><div className="expertise-content"><FocusSection /><SkillsSection /></div></details>
         <AchievementsSection />
       </div>
     </section>

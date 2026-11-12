@@ -10,9 +10,9 @@ const newsreader = localFont({
 });
 export const metadata: Metadata = {
   title: "Muhammad Daffa Yunus — AI, Data & Web",
-  description: "Portofolio Muhammad Daffa Yunus. Jelajahi MarketLens, TranslateByDeff, dan Telco Churn, serta pengalaman dalam AI, data, dan pengembangan aplikasi web.",
-  openGraph: { title: "Muhammad Daffa Yunus — AI, Data & Web", description: "Proyek, kode, data, dan eksperimen.", type: "website", locale: "id_ID" },
+  description: "Muhammad Daffa Yunus's portfolio. Explore MarketLens, TranslateByDeff, and Telco Churn, alongside experience in AI, data, and web application development.",
+  openGraph: { title: "Muhammad Daffa Yunus — AI, Data & Web", description: "Projects, code, data, and experiments.", type: "website", locale: "en_US" },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="id" className={`${instrumentSans.variable} ${newsreader.variable}`}><body>{children}</body></html>;
+  return <html lang="en" className={`${instrumentSans.variable} ${newsreader.variable}`}><body>{children}</body></html>;
 }

@@ -8,7 +8,7 @@ export const profile = {
   location: "Jakarta, Indonesia",
   cv: "/documents/CV-Muhammad-Daffa-Yunus.pdf",
   university: "Universitas Gunadarma",
-  study: "Mahasiswa Sistem Informasi",
+  study: "Information Systems Student",
   coursework: [
     "Artificial Intelligence", "Machine Learning", "Natural Language Processing",
     "Deep Learning", "Model Optimization", "Fine-Tuning",

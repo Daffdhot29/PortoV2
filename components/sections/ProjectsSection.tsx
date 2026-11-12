@@ -7,9 +7,9 @@ function ProjectLinks({ project }: { project: Project }) {
   return (
     <div className="project-links">
       {project.liveUrl ? (
-        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Buka demo <ArrowIcon diagonal /><span className="sr-only"> {project.title}, tab baru</span></a>
+        <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">Open demo <ArrowIcon diagonal /><span className="sr-only"> {project.title}, opens in a new tab</span></a>
       ) : project.video ? (
-        <a href={project.video.src} target="_blank" rel="noopener noreferrer">Buka video <ArrowIcon diagonal /><span className="sr-only"> {project.title}, tab baru</span></a>
+        <a href={project.video.src} target="_blank" rel="noopener noreferrer">Open video <ArrowIcon diagonal /><span className="sr-only"> {project.title}, opens in a new tab</span></a>
       ) : null}
     </div>
   );
@@ -21,8 +21,8 @@ export default function ProjectsSection() {
   return (
     <section className="projects-section container-main" id="projects" aria-labelledby="projects-title">
       <div className="section-heading">
-        <div><p className="eyebrow">01 / Selected projects</p><h2 id="projects-title">Proyek pilihan.</h2></div>
-        <p>{projects.length} proyek di market intelligence, penerjemahan bahasa, dan machine learning.</p>
+        <div><p className="eyebrow">01 / Selected projects</p><h2 id="projects-title">Selected projects.</h2></div>
+        <p>{projects.length} projects spanning market intelligence, language translation, and machine learning.</p>
       </div>
       {featured?.video && (
         <article className="featured-project" aria-labelledby="marketlens-title" data-project-id={featured.id}>
@@ -30,12 +30,12 @@ export default function ProjectsSection() {
           <figure className="featured-video">
             <div className="video-frame">
               <video id="marketlens-video" controls playsInline preload="none" poster={featured.video.poster} width="1920" height="1080"
-                aria-label="Demo MarketLens: Profile, Discovery, My Assets, Comparison, serta evidence dan sumber" aria-describedby="marketlens-description">
+                aria-label="MarketLens demo: Profile, Discovery, My Assets, Comparison, and supporting evidence and sources" aria-describedby="marketlens-description">
                 <source src={featured.video.src} type="video/mp4" />
-                Browser ini belum mendukung video. <a href={featured.video.src}>Buka video MarketLens.</a>
+                Your browser does not support video playback. <a href={featured.video.src}>Open video MarketLens.</a>
               </video>
             </div>
-            <figcaption><span>Demo produk · video asli</span><span>{featured.video.duration} / MarketLens</span></figcaption>
+            <figcaption><span>Product demo · original video</span><span>{featured.video.duration} / MarketLens</span></figcaption>
           </figure>
           <div className="featured-description"><p id="marketlens-description">{featured.description}</p><p className="feature-index">Profile / Discovery / My Assets / Comparison</p></div>
         <ProjectLinks project={featured} />
@@ -48,7 +48,7 @@ export default function ProjectsSection() {
             {project.preview !== "marketlens" && <ProjectPreview variant={project.preview} />}
             <div className="project-title-group"><h3 id={`${project.id}-title`}>{project.title}</h3>{project.originalTitle && <p className="original-title">{project.originalTitle}</p>}</div>
             <p className="project-description">{project.description}</p>
-            {project.tech.length > 0 && <p className="project-stack"><span className="sr-only">Teknologi: </span>{project.tech.join(" / ")}</p>}
+            {project.tech.length > 0 && <p className="project-stack"><span className="sr-only">Technologies: </span>{project.tech.join(" / ")}</p>}
             <ProjectLinks project={project} />
           </article>
         ))}

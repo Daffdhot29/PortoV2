@@ -3,7 +3,7 @@ import { experiences } from "@/data/experiences";
 export default function ExperienceSection() {
   return (
     <section className="experience-section about-subsection" id="experience" aria-labelledby="experience-title">
-      <div className="about-subheading"><h3 id="experience-title">Pengalaman</h3><p>Proyek dan pekerjaan yang saya kerjakan.</p></div>
+      <div className="about-subheading"><h3 id="experience-title">Experience</h3><p>Projects and roles I have worked on.</p></div>
       <div className="experience-list">
         {experiences.map((experience) => (
           <details className="experience-item" key={`${experience.company}-${experience.role}`}>

@@ -20,9 +20,9 @@ export const projects: Project[] = [
     title: "MarketLens",
     category: "Market intelligence",
     description:
-      "Menelusuri temuan pasar, menyimpan aset, dan membandingkan konteks riset beserta evidence dan sumbernya. Demo menampilkan alur Profile, Discovery, My Assets, dan Comparison.",
+      "Explore market insights, save assets, and compare research context with supporting evidence and sources. The demo covers the Profile, Discovery, My Assets, and Comparison workflows.",
     problem:
-      "Membaca konteks riset beberapa aset dengan bukti dan sumber yang dapat ditelusuri.",
+      "Review research context across multiple assets with traceable evidence and sources.",
     tech: [],
     preview: "marketlens",
     video: {
@@ -37,9 +37,9 @@ export const projects: Project[] = [
     originalTitle: "TranslateMachineByDeff",
     category: "Deep learning / NLP",
     description:
-      "Penerjemahan bahasa Indonesia ke bahasa Inggris menggunakan LSTMCell untuk mempelajari pola bahasa berurutan dan menghasilkan terjemahan.",
+      "Indonesian-to-English translation using LSTMCell to learn sequential language patterns and generate translations.",
     problem:
-      "Menerjemahkan teks bahasa Indonesia ke bahasa Inggris dengan pendekatan neural machine translation.",
+      "Translate Indonesian text into English using neural machine translation.",
     tech: ["Python", "PyTorch", "LSTMCell", "NLP", "Streamlit"],
     liveUrl: "https://translatebydeff-ds8dbhgu3mfq8mnlpawqqg.streamlit.app/",
     preview: "translation",
@@ -50,9 +50,9 @@ export const projects: Project[] = [
     originalTitle: "TelcoSense",
     category: "Machine learning",
     description:
-      "Rekomendasi paket telco berdasarkan karakteristik pengeluaran dan penggunaan pelanggan, dengan model RandomForestClassifier.",
+      "Telecom plan recommendations based on customer spending and usage patterns, powered by a RandomForestClassifier model.",
     problem:
-      "Menentukan paket telco yang sesuai dengan karakteristik pengeluaran dan penggunaan pelanggan.",
+      "Identify telecom plans that match customer spending and usage patterns.",
     tech: ["Python", "Scikit-learn", "Random Forest", "Pandas", "Streamlit"],
     liveUrl: "https://telco-churn-costumer-dbkebtgwge3x4tsqdxemxn.streamlit.app/",
     preview: "telco",
